@@ -9,5 +9,4 @@ public class HaversineFormulaApplication {
     public static void main(String[] args) {
         SpringApplication.run(HaversineFormulaApplication.class, args);
     }
-
 }

@@ -2,9 +2,75 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<div class="alert alert-success" role="alert">
+    <h2>Calculating Distances Between Two Coordinates Via Haversine Formula</h2>
+</div>
+</br></br></br></br>
 
+<div class="col-md-4 offset-md-4">
+    <form style="align-items: center" action="#" th:action="@{/saveCoordinates}" method="post" th:object="${haversine}">
+        <div class="form-row">
+            <div class="alert alert-warning" role="alert">First Location:&nbsp; &nbsp;</div>
+            <div class="input-group mb-3">
+                <input type="number" step="0.0000001" class="form-control" id="lat1" th:field="*{lat1}" aria-describedby="lati1"/>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="lati1">Latitude - 1 &nbsp;&nbsp;</span>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="number" step="0.0000001" class="form-control" id="long1" th:field="*{long1}" aria-describedby="longi1"/>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="longi1">Longitude - 1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="alert alert-warning" role="alert">Second Location:</div>
+            <div class="input-group mb-3">
+                <input type="number" step="0.0000001" class="form-control" id="lat2" th:field="*{lat2}" aria-describedby="lati2"/>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="lati2">Latitude - 2 &nbsp;&nbsp;</span>
+                </div>
+
+            </div>
+            <div class="input-group mb-3">
+                <input type="number" step="0.0000001" class="form-control" id="long2" th:field="*{long2}" aria-describedby="longi2"/>
+                <div class="input-group-append">
+                    <span class="input-group-text" id="longi2">Longitude - 2</span>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Calculate</button>
+    </form>
+</div>
+
+</br></br></br>
+<div style="text-align: center">
+    <button type="button" class="btn btn-primary"> RESULT : &nbsp;
+    <span class="badge badge-light" th:if="${result}" th:text="${result}"/>&nbsp; Kilometers
+    </button>
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>
