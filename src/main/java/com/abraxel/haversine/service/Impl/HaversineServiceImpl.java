@@ -19,6 +19,15 @@ public class HaversineServiceImpl implements HaversineService{
         double thetaOfLongs = Math.pow(Math.sin(deltaLambda/2), 2);
         double perform = thetaOfLats + Math.cos(phi1) * Math.cos(phi2) * thetaOfLongs;
         double sqrt= 2*Math.asin(Math.sqrt(perform));
-        return sqrt*radiusOfWorld;
+        return  round(sqrt*radiusOfWorld, 2);
+    }
+
+
+    private double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }
